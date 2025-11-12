@@ -1,216 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gateman Ticketing Services | Premium Ticket & Gift Solutions</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #0b3d91;
-            --secondary: #f4b41a;
-            --accent: #1a73e8;
-            --light: #f9f9f9;
-            --dark: #212529;
-            --gray: #6c757d;
-            --shadow: 0 5px 15px rgba(0,0,0,0.08);
-            --transition: all 0.3s ease;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gateman Ticketing Services</title>
+<style>
+    /* Base styling */
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #fff;
+        color: #222;
+    }
 
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family:'Open Sans', sans-serif; color:#444; line-height:1.6; overflow-x:hidden; background-color: #fff; }
-        h1,h2,h3,h4,h5,h6 { font-family:'Montserrat',sans-serif; font-weight:600; color: var(--dark); line-height:1.3; }
-        .container { width:100%; max-width:1200px; margin:0 auto; padding:0 20px; }
-        .btn { display:inline-block; padding:12px 30px; background-color: var(--secondary); color:white; text-decoration:none; border-radius:4px; font-weight:600; transition: var(--transition); border:none; cursor:pointer; font-family:'Montserrat',sans-serif; text-transform:uppercase; letter-spacing:1px; font-size:14px; }
-        .btn:hover { background-color:#d1a219; transform:translateY(-3px); box-shadow: var(--shadow); }
-        .btn-outline { background-color:transparent; border:2px solid var(--secondary); color: var(--secondary); }
-        .btn-outline:hover { background-color: var(--secondary); color:white; }
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 30px;
+        background: #fff;
+        border-bottom: 1px solid #ddd;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
 
-        section { padding: 80px 0; }
+    header .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #222;
+    }
 
-        /* Header */
-        header { position: fixed; top:0; left:0; width:100%; z-index:1000; background-color:rgba(255,255,255,0.95); box-shadow:0 2px 10px rgba(0,0,0,0.05); padding:15px 0; transition: var(--transition);}
-        header.scrolled { padding:10px 0; box-shadow:0 5px 20px rgba(0,0,0,0.1); }
-        .header-container { display:flex; justify-content:space-between; align-items:center; }
-        .logo img { height:50px; content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 50"><text x="0" y="35" font-family="Montserrat" font-size="24" font-weight="700" fill="%230b3d91">GATEMAN</text></svg>'); }
-        .nav-menu { display:flex; list-style:none; }
-        .nav-menu li { margin-left:30px; }
-        .nav-menu a { text-decoration:none; color: var(--dark); font-weight:500; font-size:15px; transition: var(--transition); position:relative; }
-        .nav-menu a:hover { color: var(--secondary); }
-        .nav-menu a::after { content:''; position:absolute; width:0; height:2px; bottom:-5px; left:0; background-color: var(--secondary); transition: var(--transition); }
-        .nav-menu a:hover::after { width:100%; }
-        .mobile-toggle { display:none; font-size:24px; cursor:pointer; color: var(--primary); }
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        margin: 0;
+        padding: 0;
+    }
 
-        /* Hero */
-        .hero { padding:180px 0 100px; background: linear-gradient(135deg, rgba(249,249,249,0.9), rgba(255,255,255,0.9)), url('https://images.unsplash.com/photo-1598300050530-34a2992dbddc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat; text-align:center; position:relative; }
-        .hero h1 { font-size:3.5rem; margin-bottom:20px; line-height:1.2; color: var(--primary); }
-        .hero p { font-size:1.2rem; margin-bottom:40px; max-width:700px; margin-left:auto;margin-right:auto; color: var(--gray); }
+    nav ul li a {
+        text-decoration: none;
+        color: #222;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
 
-        /* About */
-        .about { background-color: var(--light); }
-        .about-content { display:flex; align-items:center; gap:50px; flex-wrap:wrap; }
-        .about-text { flex:1; }
-        .about-text h2 { font-size:2.8rem; margin-bottom:25px; color: var(--primary); }
-        .about-text p { margin-bottom:20px; font-size:18px; }
-        .about-image { flex:1; border-radius:10px; overflow:hidden; box-shadow: var(--shadow); }
-        .about-image img { width:100%; height:auto; display:block; transition: var(--transition); }
-        .about-image:hover img { transform:scale(1.03); }
+    nav ul li a:hover {
+        color: #ff6b6b;
+    }
 
-        /* Services */
-        .services .section-header { text-align:center; margin-bottom:60px; }
-        .services .section-header h2 { font-size:2.8rem; margin-bottom:15px; color: var(--primary); }
-        .services .section-header p { max-width:700px; margin:0 auto; font-size:18px; color: var(--gray); }
-        .service-categories { display:flex; justify-content:center; flex-wrap:wrap; margin-bottom:40px; }
-        .category-toggle { padding:12px 30px; margin:5px 10px; background:transparent; border:2px solid #e9ecef; border-radius:50px; font-family:'Montserrat',sans-serif; font-weight:600; font-size:15px; cursor:pointer; transition: var(--transition); }
-        .category-toggle.active, .category-toggle:hover { background-color: var(--primary); border-color: var(--primary); color:white; }
-        .service-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(300px,1fr)); gap:30px; }
-        .service-card { background:white; border-radius:10px; overflow:hidden; box-shadow: var(--shadow); transition: var(--transition); cursor:pointer; }
-        .service-card:hover { transform:translateY(-10px); box-shadow:0 15px 30px rgba(0,0,0,0.1); }
-        .service-image { height:200px; overflow:hidden; }
-        .service-image img { width:100%; height:100%; object-fit:cover; transition: var(--transition); }
-        .service-card:hover .service-image img { transform:scale(1.1); }
-        .service-content { padding:30px; }
-        .service-content h3 { margin-bottom:15px; font-size:1.5rem; color: var(--primary); }
-        .service-content p { margin-bottom:20px; color: var(--gray); }
+    section {
+        padding: 60px 30px;
+    }
 
-        /* Contact */
-        .contact-container { display:flex; gap:50px; flex-wrap:wrap; }
-        .contact-info { flex:1; }
-        .contact-info h3 { font-size:1.8rem; margin-bottom:20px; color: var(--primary); }
-        .contact-details { margin-bottom:30px; }
-        .contact-item { display:flex; margin-bottom:20px; }
-        .contact-icon { width:50px; height:50px; background-color: rgba(244,180,26,0.1); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:20px; color: var(--secondary); margin-right:15px; flex-shrink:0; }
-        .contact-text h4 { margin-bottom:5px; font-size:18px; }
-        .contact-text p { font-size:14px; color:var(--gray); }
-        .contact-form { flex:1; background:white; padding:40px; border-radius:10px; box-shadow: var(--shadow); }
-        .form-group { margin-bottom:20px; }
-        .form-group label { display:block; margin-bottom:8px; font-weight:600; color: var(--dark); }
-        .form-control { width:100%; padding:14px; border:1px solid #ddd; border-radius:4px; font-size:16px; transition: var(--transition); }
-        .form-control:focus { border-color: var(--secondary); outline:none; box-shadow:0 0 0 3px rgba(244,180,26,0.2); }
-        textarea.form-control { min-height:150px; resize:vertical; }
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
 
-        /* Footer */
-        footer { background-color: var(--primary); color:white; padding:70px 0 20px; }
-        .footer-container { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:40px; margin-bottom:60px; }
-        .footer-logo img { height:50px; }
-        .footer-links h4, .footer-services h4, .footer-newsletter h4 { font-size:1.3rem; margin-bottom:25px; position:relative; padding-bottom:10px; }
-        .footer-links h4::after, .footer-services h4::after, .footer-newsletter h4::after { content:''; position:absolute; bottom:0; left:0; width:50px; height:2px; background-color: var(--secondary); }
-        .footer-links ul, .footer-services ul { list-style:none; }
-        .footer-links li, .footer-services li { margin-bottom:12px; }
-        .footer-links a, .footer-services a { color: rgba(255,255,255,0.8); text-decoration:none; transition: var(--transition); }
-        .footer-links a:hover, .footer-services a:hover { color: var(--secondary); padding-left:5px; }
-        .newsletter-form { display:flex; margin-bottom:20px; }
-        .newsletter-input { flex:1; padding:14px; border:none; border-radius:4px 0 0 4px; font-family:'Open Sans',sans-serif; }
-        .newsletter-btn { background-color: var(--secondary); color:white; border:none; border-radius:0 4px 4px 0; padding:0 20px; cursor:pointer; transition: var(--transition); }
-        .newsletter-btn:hover { background-color:#d1a219; }
+    .btn {
+        padding: 12px 25px;
+        background: #ff6b6b;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background 0.3s;
+    }
 
-        /* Responsive */
-        @media(max-width:992px){ .about-content{flex-direction:column;} .contact-container{flex-direction:column;} }
-        @media(max-width:768px){ .mobile-toggle{display:block;} .nav-menu{position:fixed;top:80px;left:-100%;width:100%;flex-direction:column;padding:30px 0;box-shadow:0 5px 10px rgba(0,0,0,0.1);transition:var(--transition);} .nav-menu.active{left:0;} .nav-menu li{margin:15px 0;text-align:center;} .hero h1{font-size:2.4rem;} section{padding:60px 0;} }
-        @media(max-width:576px){ .hero h1{font-size:2rem;} .hero p{font-size:1rem;} .service-grid{grid-template-columns:1fr;} }
-    </style>
+    .btn:hover {
+        background: #ff4b4b;
+    }
+
+    .services, .contact-form {
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .service-card {
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        transition: box-shadow 0.3s;
+    }
+
+    .service-card:hover {
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    /* Contact form styling */
+    .contact-form form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        background: #f9f9f9;
+        padding: 25px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .contact-form label {
+        font-weight: bold;
+    }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 1rem;
+        width: 100%;
+    }
+
+    .contact-form textarea {
+        resize: vertical;
+    }
+
+    footer {
+        background: #222;
+        color: #fff;
+        padding: 30px;
+        text-align: center;
+    }
+
+    footer a {
+        color: #ff6b6b;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+
+    /* Smooth scroll */
+    html {
+        scroll-behavior: smooth;
+    }
+</style>
 </head>
 <body>
 
-<header id="header">
-    <div class="container header-container">
-        <div class="logo"><a href="#"><img src="#" alt="Gateman Ticketing Services"></a></div>
-        <div class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></div>
-        <ul class="nav-menu" id="navMenu">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
+<header>
+    <div class="logo">Gateman Ticketing</div>
+    <nav>
+        <ul>
             <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact">Request</a></li>
         </ul>
-    </div>
+    </nav>
 </header>
 
-<section class="hero" id="home">
-    <div class="container">
-        <h1>Premium Ticketing & Gift Services for Your Events</h1>
-        <p>From corporate events to exclusive experiences, Gateman Ticketing Services delivers seamless ticketing and custom gift solutions designed to impress.</p>
-        <a href="#contact" class="btn">Request Services</a>
-    </div>
-</section>
-
-<section class="about" id="about">
-    <div class="container about-content">
-        <div class="about-text">
-            <h2>Trusted Ticketing Solutions Since 2015</h2>
-            <p>We specialize in delivering premium ticketing services and gift card solutions for events, corporate clients, and private gatherings. Our mission is to simplify your event management and elevate the attendee experience.</p>
-            <p>Our team ensures every detail is handled professionally, from VIP ticket allocations to digital gift card creation, giving you peace of mind and your clients a memorable experience.</p>
-            <a href="#contact" class="btn">Connect With Our Team</a>
-        </div>
-        <div class="about-image">
-            <img src="https://images.unsplash.com/photo-1581090700227-8c16f4cb9eec?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Gateman Ticketing Services">
-        </div>
-    </div>
-</section>
-
-<section class="services" id="services">
-    <div class="container">
-        <div class="section-header">
-            <h2>Our Services</h2>
-            <p>Choose from our specialized offerings to meet your ticketing and gifting needs.</p>
+<section id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+        <div class="service-card">
+            <h3>Event Tickets</h3>
+            <p>Secure tickets for concerts, parties, and special events. Easy and reliable service.</p>
+            <button class="btn" onclick="scrollToForm()">Request Tickets</button>
         </div>
 
-        <div class="service-categories">
-            <button class="category-toggle active" data-category="all">All Services</button>
-            <button class="category-toggle" data-category="tickets">Ticketing</button>
-            <button class="category-toggle" data-category="gift">Gift Cards</button>
-            <button class="category-toggle" data-category="digital">Digital Solutions</button>
+        <div class="service-card">
+            <h3>Gift Cards</h3>
+            <p>Purchase gift cards for your loved ones. Convenient and flexible denominations.</p>
+            <button class="btn" onclick="scrollToForm()">Request Gift Cards</button>
         </div>
 
-        <div class="service-grid">
-            <div class="service-card" data-category="tickets" data-service="VIP Event Ticketing">
-                <div class="service-image"><img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="VIP Event Ticketing"></div>
-                <div class="service-content">
-                    <h3>VIP Event Ticketing</h3>
-                    <p>Exclusive ticketing solutions for corporate and private events.</p>
-                    <button class="btn btn-outline request-btn">Request Service</button>
-                </div>
-            </div>
-            <div class="service-card" data-category="gift" data-service="Luxury Gift Card Creation">
-                <div class="service-image"><img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Luxury Gift Cards"></div>
-                <div class="service-content">
-                    <h3>Luxury Gift Card Creation</h3>
-                    <p>Custom gift cards designed for a premium experience.</p>
-                    <button class="btn btn-outline request-btn">Request Service</button>
-                </div>
-            </div>
+        <div class="service-card">
+            <h3>VIP Event Ticketing</h3>
+            <p>Exclusive VIP tickets with premium access and perks for select events.</p>
+            <button class="btn" onclick="scrollToForm()">Request VIP Tickets</button>
+        </div>
+
+        <div class="service-card">
+            <h3>Digital Services</h3>
+            <p>We offer online ticketing, gift card management, and other digital solutions.</p>
+            <button class="btn" onclick="scrollToForm()">Request Digital Services</button>
         </div>
     </div>
 </section>
 
-<section class="contact" id="contact">
-    <div class="container">
-        <div class="section-header">
-            <h2>Request Services</h2>
-            <p>Fill out the form below with your event or gift card requirements.</p>
-        </div>
-        <div class="contact-container">
-            <div class="contact-info">
-                <h3>Contact Information</h3>
-                <p>Reach out directly or use the request form to specify your needs.</p>
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <div class="contact-text"><h4>Headquarters</h4><p>123 Event Avenue, NY 10001</p></div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
-                        <div class="contact-text"><h4>Phone</h4><p>+1 (212) 555-7890</p></div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                        <div class="contact-text"><h4>Email</h4><p>info@gatemanservices.com</p></div>
-                    </div>
-                </div>
+<section id="contact">
+    <h2>Request a Service</h2>
+    <div class="contact-form">
+        <form id="inquiryForm">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Your full name" required>
             </div>
 
-            <div class="contact-form">
-                <form id="requestForm">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Your email address" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" placeholder="Optional">
+            </div>
+
+            <div class="form-group">
+                <label for="service">Service Interest</label>
+                <select id="service" required>
+                    <option value="">Select a service</option>
+                    <option value="ticket">Event Tickets</option>
+                    <option value="gift-card">Gift Cards</option>
+                    <option value="vip">VIP Event Ticketing</option>
+                    <option value="digital">Digital Services</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input type="number" id="quantity" placeholder="Number of tickets or gift cards" min="1" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Additional Details / Message</label>
+                <textarea id="message" placeholder="Any other details or special requests" required></textarea>
+            </div>
+
+            <button type="submit" class="btn">Submit Request</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 Gateman Ticketing Services</p>
+    <p>
+        <a href="mailto:contact@gateman.com">Email</a> |
+        <a href="https://instagram.com/gateman_ticketing" target="_blank">Instagram</a> |
+        <a href="https://facebook.com/gateman_ticketing" target="_blank">Facebook</a>
+    </p>
+</footer>
+
+<script>
+    function scrollToForm() {
+        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    document.getElementById('inquiryForm').addEventListener('submit', function(e){
+        e.preventDefault();
+        alert('Thank you! Your request has been submitted. We will contact you shortly.');
+        // Optional: Add backend integration or email API here
+        this.reset();
+    });
+</script>
+
+</body>
+</html>
