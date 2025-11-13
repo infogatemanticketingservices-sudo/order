@@ -824,7 +824,9 @@ footer .copyright {
 </footer>
 
   <!-- Internal JS -->
-  <script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
   const mobileToggle = document.getElementById('mobileToggle');
   const navMenu = document.getElementById('navMenu');
 
@@ -841,36 +843,31 @@ footer .copyright {
       if(navMenu.classList.contains('active')) navMenu.classList.remove('active');
     });
   });
-const categoryButtons = document.querySelectorAll('.category-toggle');
-const serviceCards = document.querySelectorAll('.service-card');
 
-categoryButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    // Remove active class from all buttons
-    categoryButtons.forEach(btn => btn.classList.remove('active'));
-    button.classList.add('active');
+  // Category buttons
+  const categoryButtons = document.querySelectorAll('.category-toggle');
+  const serviceCards = document.querySelectorAll('.service-card');
 
-    const category = button.getAttribute('data-category');
-
-    serviceCards.forEach(card => {
-      if(category === 'all' || card.getAttribute('data-category') === category){
-        card.style.display = 'block';
-      } else {
-        card.style.display = 'none';
-      }
+  categoryButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      categoryButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      const category = button.getAttribute('data-category');
+      serviceCards.forEach(card => {
+        card.style.display = (category === 'all' || card.getAttribute('data-category') === category) ? 'block' : 'none';
+      });
     });
   });
-});
-const newsletterForm = document.getElementById('newsletterForm');
-newsletterForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  alert('Thank you for subscribing!');
-  newsletterForm.reset();
-});
-  
-  // --- your existing JS here (mobile menu, smooth scroll, categories, newsletter) ---
 
-  // REQUEST FORM SUBMISSION WITH SUCCESS MESSAGE AND PING SOUND
+  // Newsletter form
+  const newsletterForm = document.getElementById('newsletterForm');
+  newsletterForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Thank you for subscribing!');
+    newsletterForm.reset();
+  });
+
+  // Request form submission
   const requestForm = document.getElementById('requestForm');
   requestForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -884,7 +881,6 @@ newsletterForm.addEventListener('submit', (e) => {
       body: new URLSearchParams(data)
     })
     .then(response => {
-      // Success message
       const successMsg = document.createElement('div');
       successMsg.style.background = "#28a745";
       successMsg.style.color = "#fff";
@@ -926,6 +922,8 @@ newsletterForm.addEventListener('submit', (e) => {
       console.error('Error!', error.message);
     });
   });
+
+});
 </script>
 </body>
 </html>
