@@ -1,4 +1,3 @@
-
 <header id="header">
   <div class="header-top">
     <div class="container header-container">
@@ -14,8 +13,7 @@
       </div>
     </div>
   </div>
-
-  <nav>
+    <nav>
     <ul class="nav-menu" id="navMenu">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
@@ -24,7 +22,6 @@
     </ul>
   </nav>
 </header>
-
 /* Header Base */
 header {
   position: fixed;
@@ -95,7 +92,6 @@ header {
   .nav-menu li { margin: 15px 0; }
   .mobile-toggle { display: block; }
 }
-
 <script>
   const mobileToggle = document.getElementById('mobileToggle');
   const navMenu = document.getElementById('navMenu');
@@ -114,7 +110,6 @@ header {
     });
   });
 </script>
-
 <!-- Hero Section -->
 <section class="hero" id="home">
   <div class="hero-container">
@@ -126,7 +121,6 @@ header {
     <a href="#contact" class="btn-hero">Request Service</a>
   </div>
 </section>
-
 /* Hero Section Base */
 .hero {
   position: relative;
@@ -199,7 +193,6 @@ header {
     font-size: 14px;
   }
 }
-
 <!-- About Section -->
 <section class="about" id="about">
   <div class="container about-container">
@@ -219,7 +212,6 @@ header {
     </div>
   </div>
 </section>
-
 /* About Section Base */
 .about {
   background-color: #f8f9fa; /* light monochrome background */
@@ -296,7 +288,6 @@ header {
     margin: 0 auto;
   }
 }
-
 <!-- Services Section -->
 <section class="services" id="services">
   <div class="container">
@@ -341,7 +332,6 @@ header {
     </div>
   </div>
 </section>
-
 /* Section Header */
 .section-header {
   text-align: center;
@@ -447,7 +437,6 @@ header {
   color: #555;
   margin-bottom: 20px;
 }
-
 <script>
 const categoryButtons = document.querySelectorAll('.category-toggle');
 const serviceCards = document.querySelectorAll('.service-card');
@@ -470,7 +459,6 @@ categoryButtons.forEach(button => {
   });
 });
 </script>
-
 <!-- Contact Section -->
 <section class="contact" id="contact">
   <div class="container">
@@ -560,7 +548,6 @@ categoryButtons.forEach(button => {
     </div>
   </div>
 </section>
-
 /* Contact Section Base */
 .contact {
   padding: 100px 20px;
@@ -682,7 +669,6 @@ textarea.form-control {
   min-height: 120px;
   resize: vertical;
 }
-
 <script>
 const requestForm = document.getElementById('requestForm');
 
@@ -695,7 +681,6 @@ requestForm.addEventListener('submit', (e) => {
   requestForm.reset();
 });
 </script>
-
 <!-- Footer Section -->
 <footer>
   <div class="container footer-container">
@@ -742,7 +727,6 @@ requestForm.addEventListener('submit', (e) => {
     &copy; 2025 Gateman Ticketing Services. All rights reserved.
   </div>
 </footer>
-
 /* Footer Base */
 footer {
   background-color: #212529;
@@ -870,7 +854,6 @@ footer .copyright {
     margin-bottom: 10px;
   }
 }
-
 <script>
 const newsletterForm = document.getElementById('newsletterForm');
 newsletterForm.addEventListener('submit', (e) => {
