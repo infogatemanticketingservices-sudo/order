@@ -867,6 +867,65 @@ newsletterForm.addEventListener('submit', (e) => {
   alert('Thank you for subscribing!');
   newsletterForm.reset();
 });
+    <script>
+  // --- your existing JS here (mobile menu, smooth scroll, categories, newsletter) ---
+
+  // REQUEST FORM SUBMISSION WITH SUCCESS MESSAGE AND PING SOUND
+  const requestForm = document.getElementById('requestForm');
+  requestForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(requestForm);
+    const data = {};
+    formData.forEach((value, key) => data[key] = value);
+
+    fetch(requestForm.action, {
+      method: 'POST',
+      body: new URLSearchParams(data)
+    })
+    .then(response => {
+      // Success message
+      const successMsg = document.createElement('div');
+      successMsg.style.background = "#28a745";
+      successMsg.style.color = "#fff";
+      successMsg.style.padding = "15px 20px";
+      successMsg.style.borderRadius = "5px";
+      successMsg.style.marginBottom = "15px";
+      successMsg.style.textAlign = "center";
+      successMsg.style.display = "flex";
+      successMsg.style.alignItems = "center";
+      successMsg.style.justifyContent = "center";
+      successMsg.style.gap = "10px";
+      successMsg.style.opacity = 0;
+      successMsg.style.transition = "opacity 0.5s ease";
+
+      const checkIcon = document.createElement('span');
+      checkIcon.innerHTML = "&#10004;";
+      checkIcon.style.fontSize = "18px";
+
+      const text = document.createElement('span');
+      text.textContent = "Request submitted successfully!";
+
+      successMsg.appendChild(checkIcon);
+      successMsg.appendChild(text);
+      requestForm.prepend(successMsg);
+
+      const audio = new Audio('https://www.soundjay.com/buttons/sounds/button-3.mp3');
+      audio.play();
+
+      setTimeout(() => { successMsg.style.opacity = 1; }, 10);
+
+      requestForm.reset();
+
+      setTimeout(() => {
+        successMsg.style.opacity = 0;
+        setTimeout(() => successMsg.remove(), 500);
+      }, 4000);
+    })
+    .catch(error => {
+      console.error('Error!', error.message);
+    });
+  });
 </script>
 </body>
 </html>
