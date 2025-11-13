@@ -1,28 +1,19 @@
-<header id="header">
-  <div class="header-top">
-    <div class="container header-container">
-      <!-- Logo -->
-      <div class="logo">
-        <a href="#home">
-          <img src="logo.png" alt="Gateman Ticketing Services">
-        </a>
-      </div>
-      <!-- Mobile Toggle -->
-      <div class="mobile-toggle" id="mobileToggle">
-        <i class="fas fa-bars"></i>
-      </div>
-    </div>
-  </div>
-    <nav>
-    <ul class="nav-menu" id="navMenu">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-</header>
-/* Header Base */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gateman Ticketing Services</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Internal CSS -->
+  <style>
+  /* Header Base */
 header {
   position: fixed;
   top: 0;
@@ -92,36 +83,7 @@ header {
   .nav-menu li { margin: 15px 0; }
   .mobile-toggle { display: block; }
 }
-<script>
-  const mobileToggle = document.getElementById('mobileToggle');
-  const navMenu = document.getElementById('navMenu');
-
-  // Toggle mobile menu
-  mobileToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-  });
-
-  // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e){
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior:'smooth', block:'start' });
-      if(navMenu.classList.contains('active')) navMenu.classList.remove('active');
-    });
-  });
-</script>
-<!-- Hero Section -->
-<section class="hero" id="home">
-  <div class="hero-container">
-    <!-- Headline -->
-    <h1>Premium Ticketing & Gift Solutions</h1>
-    <!-- Description -->
-    <p>Seamless VIP Event Ticketing and Elegant Gift Solutions for Corporate and Personal Needs.</p>
-    <!-- Call to Action -->
-    <a href="#contact" class="btn-hero">Request Service</a>
-  </div>
-</section>
-/* Hero Section Base */
+    /* Hero Section Base */
 .hero {
   position: relative;
   width: 100%;
@@ -193,26 +155,7 @@ header {
     font-size: 14px;
   }
 }
-<!-- About Section -->
-<section class="about" id="about">
-  <div class="container about-container">
-    <div class="about-content">
-      <!-- Text Content -->
-      <div class="about-text">
-        <h2>About Gateman Ticketing Services</h2>
-        <p>At Gateman Ticketing Services, we specialize in providing seamless VIP event ticketing and elegant gift solutions tailored for both corporate and personal needs. Our commitment is to make every transaction smooth, secure, and memorable for our clients.</p>
-        <p>With years of experience in premium event services, we pride ourselves on reliability, attention to detail, and exceptional customer service. Whether it’s a corporate gathering, private celebration, or gift solution, Gateman ensures a professional experience every step of the way.</p>
-        <a href="#contact" class="btn-hero">Get in Touch</a>
-      </div>
-
-      <!-- Image Content -->
-      <div class="about-image">
-        <img src="https://images.unsplash.com/photo-1602526211353-3f3efc404b4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Gateman Services">
-      </div>
-    </div>
-  </div>
-</section>
-/* About Section Base */
+    /* About Section Base */
 .about {
   background-color: #f8f9fa; /* light monochrome background */
   padding: 100px 20px;
@@ -288,51 +231,7 @@ header {
     margin: 0 auto;
   }
 }
-<!-- Services Section -->
-<section class="services" id="services">
-  <div class="container">
-    <!-- Section Header -->
-    <div class="section-header">
-      <h2>Our Services</h2>
-      <p>Explore our range of premium services tailored for seamless event experiences and elegant gift solutions.</p>
-    </div>
-
-    <!-- Category Filters -->
-    <div class="service-categories">
-      <button class="category-toggle active" data-category="all">All</button>
-      <button class="category-toggle" data-category="ticketing">VIP Event Ticketing</button>
-      <button class="category-toggle" data-category="gift">Gift Solutions</button>
-    </div>
-
-    <!-- Service Grid -->
-    <div class="service-grid">
-      <!-- VIP Ticketing Card -->
-      <div class="service-card" data-category="ticketing">
-        <div class="service-image">
-          <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="VIP Event Ticketing">
-        </div>
-        <div class="service-content">
-          <h3>VIP Event Ticketing</h3>
-          <p>Seamless VIP ticketing for corporate and private events. Enjoy smooth transactions, secure handling, and premium experiences.</p>
-          <a href="#contact" class="btn-hero">Request Now</a>
-        </div>
-      </div>
-
-      <!-- Gift Solutions Card -->
-      <div class="service-card" data-category="gift">
-        <div class="service-image">
-          <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Gift Solutions">
-        </div>
-        <div class="service-content">
-          <h3>Gift Solutions</h3>
-          <p>Elegant and customizable gift cards and packages for corporate clients or personal celebrations.</p>
-          <a href="#contact" class="btn-hero">Request Now</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-/* Section Header */
+    /* Section Header */
 .section-header {
   text-align: center;
   margin-bottom: 60px;
@@ -437,118 +336,7 @@ header {
   color: #555;
   margin-bottom: 20px;
 }
-<script>
-const categoryButtons = document.querySelectorAll('.category-toggle');
-const serviceCards = document.querySelectorAll('.service-card');
-
-categoryButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    // Remove active class from all buttons
-    categoryButtons.forEach(btn => btn.classList.remove('active'));
-    button.classList.add('active');
-
-    const category = button.getAttribute('data-category');
-
-    serviceCards.forEach(card => {
-      if(category === 'all' || card.getAttribute('data-category') === category){
-        card.style.display = 'block';
-      } else {
-        card.style.display = 'none';
-      }
-    });
-  });
-});
-</script>
-<!-- Contact Section -->
-<section class="contact" id="contact">
-  <div class="container">
-    
-    <!-- Section Header -->
-    <div class="section-header">
-      <h2>Contact Us</h2>
-      <p>Reach out for VIP ticketing or gift solution requests — our team is ready to assist you.</p>
-    </div>
-
-    <!-- Contact Container -->
-    <div class="contact-container">
-      
-      <!-- Contact Info -->
-      <div class="contact-info">
-        <h3>Get In Touch</h3>
-
-        <div class="contact-item">
-          <div class="contact-icon"><i class="fas fa-phone"></i></div>
-          <div class="contact-text">
-            <h4>Phone</h4>
-            <p>+1 (868) 555-1234</p>
-          </div>
-        </div>
-
-        <div class="contact-item">
-          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-          <div class="contact-text">
-            <h4>Email</h4>
-            <p>info@gatemanservices.com</p>
-          </div>
-        </div>
-
-        <div class="contact-item">
-          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-          <div class="contact-text">
-            <h4>Address</h4>
-            <p>Port of Spain, Trinidad & Tobago</p>
-          </div>
-        </div>
-
-        <!-- Social Links -->
-        <div class="social-links">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-      </div>
-
-      <!-- Contact Form -->
-      <div class="contact-form">
-        <form id="requestForm">
-          <div class="form-group">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" class="form-control" required>
-          </div>
-
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" class="form-control" required>
-          </div>
-
-          <div class="form-group">
-            <label for="service">Service Interested In</label>
-            <select id="service" name="service" class="form-control" required>
-              <option value="">Select a Service</option>
-              <option value="vip_ticketing">VIP Event Ticketing</option>
-              <option value="gift_solutions">Gift Solutions</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="quantity">Quantity Needed</label>
-            <input type="number" id="quantity" name="quantity" class="form-control" min="1" required>
-          </div>
-
-          <div class="form-group">
-            <label for="message">Additional Details</label>
-            <textarea id="message" name="message" class="form-control"></textarea>
-          </div>
-
-          <button type="submit" class="btn-hero">Submit Request</button>
-        </form>
-      </div>
-
-    </div>
-  </div>
-</section>
-/* Contact Section Base */
+    /* Contact Section Base */
 .contact {
   padding: 100px 20px;
   background-color: #fff;
@@ -669,65 +457,7 @@ textarea.form-control {
   min-height: 120px;
   resize: vertical;
 }
-<script>
-const requestForm = document.getElementById('requestForm');
-
-requestForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-
-  // Here you can integrate email or database submission
-  alert('Thank you! Your request has been submitted.');
-
-  requestForm.reset();
-});
-</script>
-<!-- Footer Section -->
-<footer>
-  <div class="container footer-container">
-
-    <!-- Footer Logo -->
-    <div class="footer-logo">
-      <img src="https://via.placeholder.com/150x50?text=GATEMAN" alt="Gateman Ticketing Services">
-    </div>
-
-    <!-- Quick Links -->
-    <div class="footer-links">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-
-    <!-- Services Links -->
-    <div class="footer-services">
-      <h4>Our Services</h4>
-      <ul>
-        <li><a href="#services">VIP Event Ticketing</a></li>
-        <li><a href="#services">Gift Solutions</a></li>
-      </ul>
-    </div>
-
-    <!-- Newsletter -->
-    <div class="footer-newsletter">
-      <h4>Subscribe</h4>
-      <p>Sign up to get updates on new services, offers, and VIP events.</p>
-      <form class="newsletter-form" id="newsletterForm">
-        <input type="email" class="newsletter-input" placeholder="Your Email" required>
-        <button type="submit" class="newsletter-btn">Subscribe</button>
-      </form>
-    </div>
-
-  </div>
-
-  <!-- Footer Bottom -->
-  <div class="copyright">
-    &copy; 2025 Gateman Ticketing Services. All rights reserved.
-  </div>
-</footer>
-/* Footer Base */
+    /* Footer Base */
 footer {
   background-color: #212529;
   color: #fff;
@@ -854,7 +584,299 @@ footer .copyright {
     margin-bottom: 10px;
   }
 }
+  </style>
+</head>
+<body>
+
+<header id="header">
+  <div class="header-top">
+    <div class="container header-container">
+      <!-- Logo -->
+      <div class="logo">
+        <a href="#home">
+          <img src="logo.png" alt="Gateman Ticketing Services">
+        </a>
+      </div>
+      <!-- Mobile Toggle -->
+      <div class="mobile-toggle" id="mobileToggle">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </div>
+    <nav>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+  <!-- Hero Section -->
+<section class="hero" id="home">
+  <div class="hero-container">
+    <!-- Headline -->
+    <h1>Premium Ticketing & Gift Solutions</h1>
+    <!-- Description -->
+    <p>Seamless VIP Event Ticketing and Elegant Gift Solutions for Corporate and Personal Needs.</p>
+    <!-- Call to Action -->
+    <a href="#contact" class="btn-hero">Request Service</a>
+  </div>
+</section>
+  <!-- About Section -->
+<section class="about" id="about">
+  <div class="container about-container">
+    <div class="about-content">
+      <!-- Text Content -->
+      <div class="about-text">
+        <h2>About Gateman Ticketing Services</h2>
+        <p>At Gateman Ticketing Services, we specialize in providing seamless VIP event ticketing and elegant gift solutions tailored for both corporate and personal needs. Our commitment is to make every transaction smooth, secure, and memorable for our clients.</p>
+        <p>With years of experience in premium event services, we pride ourselves on reliability, attention to detail, and exceptional customer service. Whether it’s a corporate gathering, private celebration, or gift solution, Gateman ensures a professional experience every step of the way.</p>
+        <a href="#contact" class="btn-hero">Get in Touch</a>
+      </div>
+
+      <!-- Image Content -->
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1602526211353-3f3efc404b4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Gateman Services">
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- Services Section -->
+<section class="services" id="services">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="section-header">
+      <h2>Our Services</h2>
+      <p>Explore our range of premium services tailored for seamless event experiences and elegant gift solutions.</p>
+    </div>
+
+    <!-- Category Filters -->
+    <div class="service-categories">
+      <button class="category-toggle active" data-category="all">All</button>
+      <button class="category-toggle" data-category="ticketing">VIP Event Ticketing</button>
+      <button class="category-toggle" data-category="gift">Gift Solutions</button>
+    </div>
+
+    <!-- Service Grid -->
+    <div class="service-grid">
+      <!-- VIP Ticketing Card -->
+      <div class="service-card" data-category="ticketing">
+        <div class="service-image">
+          <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="VIP Event Ticketing">
+        </div>
+        <div class="service-content">
+          <h3>VIP Event Ticketing</h3>
+          <p>Seamless VIP ticketing for corporate and private events. Enjoy smooth transactions, secure handling, and premium experiences.</p>
+          <a href="#contact" class="btn-hero">Request Now</a>
+        </div>
+      </div>
+
+      <!-- Gift Solutions Card -->
+      <div class="service-card" data-category="gift">
+        <div class="service-image">
+          <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Gift Solutions">
+        </div>
+        <div class="service-content">
+          <h3>Gift Solutions</h3>
+          <p>Elegant and customizable gift cards and packages for corporate clients or personal celebrations.</p>
+          <a href="#contact" class="btn-hero">Request Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- Contact Section -->
+<section class="contact" id="contact">
+  <div class="container">
+    
+    <!-- Section Header -->
+    <div class="section-header">
+      <h2>Contact Us</h2>
+      <p>Reach out for VIP ticketing or gift solution requests — our team is ready to assist you.</p>
+    </div>
+
+    <!-- Contact Container -->
+    <div class="contact-container">
+      
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <h3>Get In Touch</h3>
+
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-phone"></i></div>
+          <div class="contact-text">
+            <h4>Phone</h4>
+            <p>+1 (868) 555-1234</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+          <div class="contact-text">
+            <h4>Email</h4>
+            <p>info@gatemanservices.com</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="contact-text">
+            <h4>Address</h4>
+            <p>Port of Spain, Trinidad & Tobago</p>
+          </div>
+        </div>
+
+        <!-- Social Links -->
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <form id="requestForm">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="service">Service Interested In</label>
+            <select id="service" name="service" class="form-control" required>
+              <option value="">Select a Service</option>
+              <option value="vip_ticketing">VIP Event Ticketing</option>
+              <option value="gift_solutions">Gift Solutions</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="quantity">Quantity Needed</label>
+            <input type="number" id="quantity" name="quantity" class="form-control" min="1" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Additional Details</label>
+            <textarea id="message" name="message" class="form-control"></textarea>
+          </div>
+
+          <button type="submit" class="btn-hero">Submit Request</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+  <!-- Footer Section -->
+<footer>
+  <div class="container footer-container">
+
+    <!-- Footer Logo -->
+    <div class="footer-logo">
+      <img src="https://via.placeholder.com/150x50?text=GATEMAN" alt="Gateman Ticketing Services">
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Services Links -->
+    <div class="footer-services">
+      <h4>Our Services</h4>
+      <ul>
+        <li><a href="#services">VIP Event Ticketing</a></li>
+        <li><a href="#services">Gift Solutions</a></li>
+      </ul>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="footer-newsletter">
+      <h4>Subscribe</h4>
+      <p>Sign up to get updates on new services, offers, and VIP events.</p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" class="newsletter-input" placeholder="Your Email" required>
+        <button type="submit" class="newsletter-btn">Subscribe</button>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="copyright">
+    &copy; 2025 Gateman Ticketing Services. All rights reserved.
+  </div>
+</footer>
+
+  <!-- Internal JS -->
+  <script>
 <script>
+  const mobileToggle = document.getElementById('mobileToggle');
+  const navMenu = document.getElementById('navMenu');
+
+  // Toggle mobile menu
+  mobileToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e){
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior:'smooth', block:'start' });
+      if(navMenu.classList.contains('active')) navMenu.classList.remove('active');
+    });
+  });
+</script>
+  <script>
+const categoryButtons = document.querySelectorAll('.category-toggle');
+const serviceCards = document.querySelectorAll('.service-card');
+
+categoryButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    // Remove active class from all buttons
+    categoryButtons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+
+    const category = button.getAttribute('data-category');
+
+    serviceCards.forEach(card => {
+      if(category === 'all' || card.getAttribute('data-category') === category){
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
+  <script>
+const requestForm = document.getElementById('requestForm');
+
+requestForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  // Here you can integrate email or database submission
+  alert('Thank you! Your request has been submitted.');
+
+  requestForm.reset();
+});
+</script>
+  <script>
 const newsletterForm = document.getElementById('newsletterForm');
 newsletterForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -862,3 +884,6 @@ newsletterForm.addEventListener('submit', (e) => {
   newsletterForm.reset();
 });
 </script>
+  </script>
+</body>
+</html>
