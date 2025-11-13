@@ -1,326 +1,881 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Gateman Ticketing Services offers reliable, fast, and professional ticketing solutions for events across Trinidad and Tobago." />
-    <meta name="keywords" content="ticketing, event tickets, Trinidad, gate management, Gateman Ticketing Services" />
-    <meta name="author" content="Gateman Ticketing Services" />
-    <title>Gateman Ticketing Services</title>
-    <link rel="icon" href="favicon.png" type="image/png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        :root {
-            --gold: #d4af37;
-            --black: #111;
-            --white: #fff;
-            --gray: #f7f7f7;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
+<header id="header">
+  <div class="header-top">
+    <div class="container header-container">
+      <!-- Logo -->
+      <div class="logo">
+        <a href="#home">
+          <img src="logo.png" alt="Gateman Ticketing Services">
+        </a>
+      </div>
+      <!-- Mobile Toggle -->
+      <div class="mobile-toggle" id="mobileToggle">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </div>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Poppins", sans-serif;
-        }
+  <nav>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
-        html {
-            scroll-behavior: smooth;
-        }
+/* Header Base */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255,255,255,0.95);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
 
-        body {
-            background-color: var(--white);
-            color: var(--black);
-            overflow-x: hidden;
-        }
+/* Header Container */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 20px;
+}
 
-        /* HEADER */
-        header {
-            width: 100%;
-            background-color: var(--white);
-            box-shadow: var(--shadow);
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-        }
+/* Logo */
+.logo img { height: 50px; }
 
-        .header-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1.2rem 2rem;
-            max-width: 1200px;
-            margin: auto;
-        }
+/* Nav Menu */
+.nav-menu {
+  display: flex;
+  list-style: none;
+}
 
-        .logo img {
-            height: 55px;
-            width: auto;
-        }
+.nav-menu li { margin-left: 30px; }
 
-        .nav-menu {
-            list-style: none;
-            display: flex;
-            gap: 1.5rem;
-        }
+.nav-menu a {
+  text-decoration: none;
+  color: #212529;
+  font-weight: 500;
+  font-size: 15px;
+  position: relative;
+  transition: 0.3s ease;
+}
 
-        .nav-menu a {
-            text-decoration: none;
-            color: var(--black);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
+.nav-menu a:hover { color: #444; }
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #444;
+  transition: 0.3s ease;
+}
+.nav-menu a:hover::after { width: 100%; }
 
-        .nav-menu a:hover {
-            color: var(--gold);
-        }
+/* Mobile Toggle */
+.mobile-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #212529;
+}
 
-        .mobile-toggle {
-            display: none;
-            font-size: 1.6rem;
-            cursor: pointer;
-            color: var(--black);
-        }
+/* Mobile Menu Responsive */
+@media(max-width: 768px){
+  .nav-menu { display: none; flex-direction: column; background: white; position: absolute; top: 65px; right: 0; width: 200px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+  .nav-menu.active { display: flex; }
+  .nav-menu li { margin: 15px 0; }
+  .mobile-toggle { display: block; }
+}
 
-        /* HERO SECTION */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-                        url('https://images.unsplash.com/photo-1525186402429-b4ff38bedbec?auto=format&fit=crop&w=1600&q=80') center/cover;
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem;
-        }
+<script>
+  const mobileToggle = document.getElementById('mobileToggle');
+  const navMenu = document.getElementById('navMenu');
 
-        .hero h1 {
-            font-size: 3rem;
-            color: var(--gold);
-            margin-bottom: 1rem;
-        }
+  // Toggle mobile menu
+  mobileToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
 
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: auto;
-            line-height: 1.6;
-        }
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e){
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior:'smooth', block:'start' });
+      if(navMenu.classList.contains('active')) navMenu.classList.remove('active');
+    });
+  });
+</script>
 
-        .btn {
-            margin-top: 2rem;
-            padding: 0.8rem 1.8rem;
-            background-color: var(--gold);
-            border: none;
-            border-radius: 5px;
-            color: var(--white);
-            cursor: pointer;
-            font-weight: 600;
-            transition: background 0.3s ease;
-        }
+<!-- Hero Section -->
+<section class="hero" id="home">
+  <div class="hero-container">
+    <!-- Headline -->
+    <h1>Premium Ticketing & Gift Solutions</h1>
+    <!-- Description -->
+    <p>Seamless VIP Event Ticketing and Elegant Gift Solutions for Corporate and Personal Needs.</p>
+    <!-- Call to Action -->
+    <a href="#contact" class="btn-hero">Request Service</a>
+  </div>
+</section>
 
-        .btn:hover {
-            background-color: #b9952f;
-        }
+/* Hero Section Base */
+.hero {
+  position: relative;
+  width: 100%;
+  padding: 180px 20px 120px;
+  text-align: center;
+  background: linear-gradient(
+                rgba(255,255,255,0.85),
+                rgba(255,255,255,0.85)
+              ),
+              url('https://images.unsplash.com/photo-1605296867304-46d5465a13f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+}
 
-        /* SECTIONS */
-        section {
-            padding: 5rem 2rem;
-            max-width: 1100px;
-            margin: auto;
-        }
+/* Container inside Hero for spacing */
+.hero-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
 
-        section h2 {
-            text-align: center;
-            color: var(--gold);
-            margin-bottom: 2rem;
-            font-size: 2rem;
-        }
+/* Headline */
+.hero h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
 
-        section p {
-            text-align: center;
-            line-height: 1.8;
-            color: #333;
-        }
+/* Description paragraph */
+.hero p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
 
-        /* SERVICES */
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
+/* Hero CTA Button */
+.btn-hero {
+  display: inline-block;
+  padding: 14px 30px;
+  background-color: #212529;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
 
-        .service {
-            background: var(--gray);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
+.btn-hero:hover {
+  background-color: #444;
+  transform: translateY(-2px);
+}
 
-        .service:hover {
-            transform: translateY(-5px);
-        }
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero {
+    padding: 150px 15px 100px;
+  }
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .btn-hero {
+    padding: 12px 25px;
+    font-size: 14px;
+  }
+}
 
-        .service i {
-            font-size: 2rem;
-            color: var(--gold);
-            margin-bottom: 1rem;
-        }
+<!-- About Section -->
+<section class="about" id="about">
+  <div class="container about-container">
+    <div class="about-content">
+      <!-- Text Content -->
+      <div class="about-text">
+        <h2>About Gateman Ticketing Services</h2>
+        <p>At Gateman Ticketing Services, we specialize in providing seamless VIP event ticketing and elegant gift solutions tailored for both corporate and personal needs. Our commitment is to make every transaction smooth, secure, and memorable for our clients.</p>
+        <p>With years of experience in premium event services, we pride ourselves on reliability, attention to detail, and exceptional customer service. Whether it’s a corporate gathering, private celebration, or gift solution, Gateman ensures a professional experience every step of the way.</p>
+        <a href="#contact" class="btn-hero">Get in Touch</a>
+      </div>
 
-        /* CONTACT */
-        .contact-info {
-            text-align: center;
-            margin-top: 2rem;
-        }
+      <!-- Image Content -->
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1602526211353-3f3efc404b4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Gateman Services">
+      </div>
+    </div>
+  </div>
+</section>
 
-        .contact-info a {
-            color: var(--gold);
-            text-decoration: none;
-            margin: 0 10px;
-        }
+/* About Section Base */
+.about {
+  background-color: #f8f9fa; /* light monochrome background */
+  padding: 100px 20px;
+}
 
-        .social a {
-            margin: 0 10px;
-            font-size: 1.3rem;
-            color: var(--gold);
-            transition: color 0.3s ease;
-        }
+/* About Container */
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-        .social a:hover {
-            color: var(--black);
-        }
+/* Flex layout for content */
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
 
-        /* FOOTER */
-        footer {
-            background-color: var(--black);
-            color: var(--white);
-            text-align: center;
-            padding: 2rem 1rem;
-        }
+/* Text Section */
+.about-text {
+  flex: 1;
+}
 
-        footer p {
-            font-size: 0.9rem;
-        }
+.about-text h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 25px;
+}
 
-        @media (max-width: 768px) {
-            .nav-menu {
-                position: absolute;
-                top: 70px;
-                right: 20px;
-                background-color: var(--white);
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 20px;
-                border-radius: 10px;
-                box-shadow: var(--shadow);
-                display: none;
-            }
+.about-text p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
 
-            .nav-menu.active {
-                display: flex;
-            }
+/* About CTA Button */
+.about-text .btn-hero {
+  margin-top: 15px;
+}
 
-            .mobile-toggle {
-                display: block;
-            }
+/* Image Section */
+.about-image {
+  flex: 1;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
 
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-        }
-    </style>
-</head>
+.about-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
 
-<body>
+.about-image:hover img {
+  transform: scale(1.03);
+}
 
-    <!-- HEADER -->
-    <header id="home">
-        <div class="header-container">
-            <div class="logo">
-                <img src="logo.png" alt="Gateman Ticketing Services Logo">
-            </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></div>
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .about-image {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+}
+
+<!-- Services Section -->
+<section class="services" id="services">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="section-header">
+      <h2>Our Services</h2>
+      <p>Explore our range of premium services tailored for seamless event experiences and elegant gift solutions.</p>
+    </div>
+
+    <!-- Category Filters -->
+    <div class="service-categories">
+      <button class="category-toggle active" data-category="all">All</button>
+      <button class="category-toggle" data-category="ticketing">VIP Event Ticketing</button>
+      <button class="category-toggle" data-category="gift">Gift Solutions</button>
+    </div>
+
+    <!-- Service Grid -->
+    <div class="service-grid">
+      <!-- VIP Ticketing Card -->
+      <div class="service-card" data-category="ticketing">
+        <div class="service-image">
+          <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="VIP Event Ticketing">
         </div>
-    </header>
-
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div>
-            <h1>Gateman Ticketing Services</h1>
-            <p>Reliable, fast, and professional ticketing solutions for your next event.  
-            From event setup to seamless digital check-ins — we’ve got you covered.</p>
-            <a href="#contact"><button class="btn">Get Started</button></a>
+        <div class="service-content">
+          <h3>VIP Event Ticketing</h3>
+          <p>Seamless VIP ticketing for corporate and private events. Enjoy smooth transactions, secure handling, and premium experiences.</p>
+          <a href="#contact" class="btn-hero">Request Now</a>
         </div>
-    </section>
+      </div>
 
-    <!-- ABOUT -->
-    <section id="about">
-        <h2>About Us</h2>
-        <p>At Gateman Ticketing Services, we specialize in creating smooth and stress-free ticketing experiences for organizers and attendees alike. Our team ensures your event runs with precision, professionalism, and style.</p>
-    </section>
-
-    <!-- SERVICES -->
-    <section id="services">
-        <h2>Our Services</h2>
-        <div class="services">
-            <div class="service">
-                <i class="fas fa-ticket-alt"></i>
-                <h3>Event Ticketing</h3>
-                <p>Full digital ticket setup, sales management, and entry tracking systems.</p>
-            </div>
-            <div class="service">
-                <i class="fas fa-laptop"></i>
-                <h3>On-Site Check-In</h3>
-                <p>Fast, secure scanning at entrances to keep lines short and guests happy.</p>
-            </div>
-            <div class="service">
-                <i class="fas fa-headset"></i>
-                <h3>Organizer Support</h3>
-                <p>Dedicated support to help you manage every detail of your event.</p>
-            </div>
+      <!-- Gift Solutions Card -->
+      <div class="service-card" data-category="gift">
+        <div class="service-image">
+          <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Gift Solutions">
         </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>Let’s make your next event a success. Reach out to us today!</p>
-        <div class="contact-info">
-            <p>Email: <a href="mailto:gatemanservices@gmail.com">gatemanservices@gmail.com</a></p>
-            <p>Phone: <a href="tel:+1868-000-0000">+1 (868) 000-0000</a></p>
-            <div class="social">
-                <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
-                <a href="https://wa.me/18680000000" target="_blank"><i class="fab fa-whatsapp"></i></a>
-            </div>
+        <div class="service-content">
+          <h3>Gift Solutions</h3>
+          <p>Elegant and customizable gift cards and packages for corporate clients or personal celebrations.</p>
+          <a href="#contact" class="btn-hero">Request Now</a>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>© 2025 Gateman Ticketing Services. All Rights Reserved.</p>
-    </footer>
+/* Section Header */
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
 
-    <script>
-        const mobileToggle = document.getElementById('mobileToggle');
-        const navMenu = document.getElementById('navMenu');
-        mobileToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-    </script>
+.section-header h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.8rem;
+  color: #212529;
+  margin-bottom: 15px;
+}
 
-</body>
-</html> 
+.section-header p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Category Buttons */
+.service-categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.category-toggle {
+  padding: 12px 30px;
+  margin: 5px 10px;
+  background: transparent;
+  border: 2px solid #212529;
+  border-radius: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.category-toggle.active,
+.category-toggle:hover {
+  background-color: #212529;
+  color: #fff;
+  border-color: #212529;
+}
+
+/* Service Grid */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+/* Service Card */
+.service-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* Service Image */
+.service-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.service-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-image img {
+  transform: scale(1.1);
+}
+
+/* Service Content */
+.service-content {
+  padding: 30px;
+}
+
+.service-content h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #212529;
+}
+
+.service-content p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+<script>
+const categoryButtons = document.querySelectorAll('.category-toggle');
+const serviceCards = document.querySelectorAll('.service-card');
+
+categoryButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    // Remove active class from all buttons
+    categoryButtons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+
+    const category = button.getAttribute('data-category');
+
+    serviceCards.forEach(card => {
+      if(category === 'all' || card.getAttribute('data-category') === category){
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
+
+<!-- Contact Section -->
+<section class="contact" id="contact">
+  <div class="container">
+    
+    <!-- Section Header -->
+    <div class="section-header">
+      <h2>Contact Us</h2>
+      <p>Reach out for VIP ticketing or gift solution requests — our team is ready to assist you.</p>
+    </div>
+
+    <!-- Contact Container -->
+    <div class="contact-container">
+      
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <h3>Get In Touch</h3>
+
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-phone"></i></div>
+          <div class="contact-text">
+            <h4>Phone</h4>
+            <p>+1 (868) 555-1234</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+          <div class="contact-text">
+            <h4>Email</h4>
+            <p>info@gatemanservices.com</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="contact-text">
+            <h4>Address</h4>
+            <p>Port of Spain, Trinidad & Tobago</p>
+          </div>
+        </div>
+
+        <!-- Social Links -->
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <form id="requestForm">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="service">Service Interested In</label>
+            <select id="service" name="service" class="form-control" required>
+              <option value="">Select a Service</option>
+              <option value="vip_ticketing">VIP Event Ticketing</option>
+              <option value="gift_solutions">Gift Solutions</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="quantity">Quantity Needed</label>
+            <input type="number" id="quantity" name="quantity" class="form-control" min="1" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Additional Details</label>
+            <textarea id="message" name="message" class="form-control"></textarea>
+          </div>
+
+          <button type="submit" class="btn-hero">Submit Request</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+/* Contact Section Base */
+.contact {
+  padding: 100px 20px;
+  background-color: #fff;
+}
+
+/* Container layout */
+.contact-container {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+/* Contact Info */
+.contact-info {
+  flex: 1;
+}
+
+.contact-info h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  color: #212529;
+  margin-bottom: 25px;
+}
+
+.contact-item {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.contact-icon {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(33,33,33,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #212529;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.contact-text h4 {
+  margin-bottom: 5px;
+  font-size: 18px;
+  color: #212529;
+}
+
+.contact-text p {
+  font-family: 'Open Sans', sans-serif;
+  color: #555;
+  font-size: 15px;
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  margin-top: 30px;
+}
+
+.social-links a {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  color: #212529;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  background-color: #212529;
+  color: #fff;
+  transform: translateY(-5px);
+}
+
+/* Contact Form */
+.contact-form {
+  flex: 1;
+  background-color: #f8f9fa;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #212529;
+}
+
+.form-control {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #212529;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(33,33,33,0.1);
+}
+
+textarea.form-control {
+  min-height: 120px;
+  resize: vertical;
+}
+
+<script>
+const requestForm = document.getElementById('requestForm');
+
+requestForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  // Here you can integrate email or database submission
+  alert('Thank you! Your request has been submitted.');
+
+  requestForm.reset();
+});
+</script>
+
+<!-- Footer Section -->
+<footer>
+  <div class="container footer-container">
+
+    <!-- Footer Logo -->
+    <div class="footer-logo">
+      <img src="https://via.placeholder.com/150x50?text=GATEMAN" alt="Gateman Ticketing Services">
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Services Links -->
+    <div class="footer-services">
+      <h4>Our Services</h4>
+      <ul>
+        <li><a href="#services">VIP Event Ticketing</a></li>
+        <li><a href="#services">Gift Solutions</a></li>
+      </ul>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="footer-newsletter">
+      <h4>Subscribe</h4>
+      <p>Sign up to get updates on new services, offers, and VIP events.</p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" class="newsletter-input" placeholder="Your Email" required>
+        <button type="submit" class="newsletter-btn">Subscribe</button>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="copyright">
+    &copy; 2025 Gateman Ticketing Services. All rights reserved.
+  </div>
+</footer>
+
+/* Footer Base */
+footer {
+  background-color: #212529;
+  color: #fff;
+  padding: 70px 20px 30px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Footer Container Grid */
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+/* Footer Logo */
+.footer-logo img {
+  height: 50px;
+  display: block;
+  margin-bottom: 20px;
+}
+
+/* Footer Headings */
+.footer-links h4,
+.footer-services h4,
+.footer-newsletter h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-links h4::after,
+.footer-services h4::after,
+.footer-newsletter h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background-color: #fff; /* monochrome accent */
+}
+
+/* Footer Links */
+.footer-links ul,
+.footer-services ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li,
+.footer-services li {
+  margin-bottom: 12px;
+}
+
+.footer-links a,
+.footer-services a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-links a:hover,
+.footer-services a:hover {
+  color: #fff;
+  padding-left: 5px;
+}
+
+/* Newsletter */
+.footer-newsletter p {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 15px;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 12px 15px;
+  border-radius: 4px 0 0 4px;
+  border: none;
+  font-size: 15px;
+}
+
+.newsletter-btn {
+  background-color: #fff;
+  color: #212529;
+  border: none;
+  padding: 0 20px;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.newsletter-btn:hover {
+  background-color: #555;
+  color: #fff;
+}
+
+/* Footer Bottom */
+footer .copyright {
+  text-align: center;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .newsletter-form {
+    flex-direction: column;
+  }
+  .newsletter-input,
+  .newsletter-btn {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+}
+
+<script>
+const newsletterForm = document.getElementById('newsletterForm');
+newsletterForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  alert('Thank you for subscribing!');
+  newsletterForm.reset();
+});
+</script>
