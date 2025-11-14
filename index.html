@@ -657,12 +657,13 @@ footer .copyright {
         <p>At Gateman Ticketing Services, we specialize in providing seamless VIP event ticketing and elegant gift solutions tailored for both corporate and personal needs. Our commitment is to make every transaction smooth, secure, and memorable for our clients.</p>
         <p>With years of experience in premium event services, we pride ourselves on reliability, attention to detail, and exceptional customer service. Whether it’s a corporate gathering, private celebration, or gift solution, Gateman ensures a professional experience every step of the way.</p>
         <a href="#contact" class="btn-hero">Get in Touch</a>
-      </div>
-      <!-- WhatsApp Quote Button -->
+        <!-- WhatsApp Quote Button -->
       <a href="https://wa.me/18687466208?text=Hi%2C%20can%20I%20request%20a%20quote%3F" 
    target="_blank" class="btn-quote">
    💬 Request a Quote
 </a>
+      </div>
+      
 
       <!-- Image Content -->
       <div class="about-image">
@@ -888,14 +889,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Newsletter form
-  const newsletterForm = document.getElementById('newsletterForm');
-  newsletterForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Thank you for subscribing!');
-    newsletterForm.reset();
-  });
-
   // Request form submission
   const requestForm = document.getElementById('requestForm');
   requestForm.addEventListener('submit', (e) => {
@@ -953,6 +946,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+
 </script>
 </body>
 </html>
