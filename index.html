@@ -120,18 +120,24 @@ header {
   margin-bottom: 20px;
   line-height: 1.2;
 }
-/* WhatsApp Quote styled like btn-hero */
+    /* WhatsApp Quote button — monochrome, same size as Get in Touch */
 .btn-quote {
-    background-color: #212529;       /* same as btn-hero */
-    color: #fff;                     /* text color */
-    padding: 14px 30px;              /* same padding as btn-hero */
-    border-radius: 5px;              /* same border-radius */
-    font-family: 'Montserrat', sans-serif; /* same font */
-    font-weight: 600;                /* same weight */
+    background-color: #555;           /* darker gray for monochrome feel */
+    color: #fff;                      /* white text */
+    padding: 12px 25px;               /* match Get in Touch size */
+    border-radius: 5px;               /* same as Get in Touch */
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: 600;
+    font-size: 14px;                  /* match Get in Touch font size */
     text-decoration: none;
     display: inline-block;
     margin-top: 15px;
     transition: all 0.3s ease;
+}
+
+.btn-quote:hover {
+    background-color: #333;           /* slightly darker on hover */
+    transform: translateY(-2px);
 }
 
 .btn-quote:hover {
